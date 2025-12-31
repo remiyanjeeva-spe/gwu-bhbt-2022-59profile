@@ -103,7 +103,7 @@ export default function Hero() {
               
               <div className="relative w-72 h-72 md:w-96 md:h-96 rounded-[2.5rem] overflow-hidden border-2 border-white/50 dark:border-slate-700/50 shadow-2xl">
                 <img
-                  src="/profile.jpg" 
+                  src="public/profile.jpg" 
                   alt="Remiyan Profile"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
