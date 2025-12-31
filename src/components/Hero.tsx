@@ -1,5 +1,6 @@
-import { Download, Mail, MapPin, MousePointer2, Sparkles } from 'lucide-react';
+import { Download, Mail, MapPin } from 'lucide-react';
 import { motion } from 'framer-motion';
+import profileImg from '../assets/profile.jpg';
 
 export default function Hero() {
   return (
@@ -13,7 +14,7 @@ export default function Hero() {
         
         {/* Subtle Grid Pattern */}
         <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 brightness-100 contrast-150"></div>
-        <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(#3b82f61a 1px, transparent 1px)', size: '40px 40px', backgroundSize: '40px 40px' }}></div>
+        <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(#3b82f61a 1px, transparent 1px)', backgroundSize: '40px 40px' }}></div>
       </div>
 
       {/* Main Content Container */}
@@ -103,11 +104,16 @@ export default function Hero() {
               
               <div className="relative w-72 h-72 md:w-96 md:h-96 rounded-[2.5rem] overflow-hidden border-2 border-white/50 dark:border-slate-700/50 shadow-2xl">
                 <img
-                  src="public/profile.jpg" 
+                  src={profileImg}
                   alt="Remiyan Profile"
+                  onError={(e) => {
+                    const target = e.currentTarget as HTMLImageElement;
+                    const fallback = 'https://ui-avatars.com/api/?name=Remiyan&size=512&background=0D9488&color=fff';
+                    if (target.src !== fallback) target.src = fallback;
+                  }}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-                
+
                 {/* Floating Stats or Overlay (Optional) */}
                 <div className="absolute bottom-4 left-4 right-4 p-4 bg-white/20 dark:bg-black/20 backdrop-blur-lg rounded-2xl border border-white/30 dark:border-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                   <p className="text-xs font-bold text-white uppercase tracking-tighter text-center">Innovating Healthcare</p>
